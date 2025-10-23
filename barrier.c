@@ -12,7 +12,7 @@ int generation = 0;   // increments each time the barrier opens
 void barrier(void) {
     pthread_mutex_lock(&lock);
 
-    int my_gen = generation;      // snapshot the current “sense”
+    int my_gen = generation;      // snapshot the current "sense"
     if (++count == NUM_THREADS) {
         // Last thread arrives: open the barrier for everyone
         count = 0;                // reset for next use
